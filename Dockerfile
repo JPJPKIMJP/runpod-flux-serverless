@@ -2,9 +2,10 @@ FROM python:3.10-slim
 
 WORKDIR /
 
-# Install dependencies
+# Install pip and requirements
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip \
+ && pip install --no-cache-dir -r requirements.txt
 
 # Copy handler
 COPY handler.py /
